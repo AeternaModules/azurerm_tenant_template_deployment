@@ -1,3 +1,7 @@
+output "tenant_template_deployments_id" {
+  description = "Map of id values across all tenant_template_deployments, keyed the same as var.tenant_template_deployments"
+  value       = { for k, v in azurerm_tenant_template_deployment.tenant_template_deployments : k => v.id }
+}
 output "tenant_template_deployments_debug_level" {
   description = "Map of debug_level values across all tenant_template_deployments, keyed the same as var.tenant_template_deployments"
   value       = { for k, v in azurerm_tenant_template_deployment.tenant_template_deployments : k => v.debug_level }
